@@ -39,7 +39,7 @@ class JwtInternal implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtInternal_Meta664d3323f2e6d The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtInternal_Meta664d39bdea339 The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtInternal_Meta664d3323f2e6d
+             * @return JwtInternal_Meta664d39bdea339
              */
             public function getMeta()
-                : JwtInternal_Meta664d3323f2e6d
+                : JwtInternal_Meta664d39bdea339
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtInternal_Meta664d3323f2e6d($value) : $value;
+        return is_array($value) ? new JwtInternal_Meta664d39bdea339($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtInternal_Meta664d3323f2e6d)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtInternal_Meta664d39bdea339)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtInternal_Meta664d3323f2e6d',
+  1 => 'JwtInternal_Meta664d39bdea339',
 )));
 }
 
