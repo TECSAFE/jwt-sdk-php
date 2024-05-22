@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtBase_Meta664d3b8f132ef
+ * Class JwtSalesChannel_Meta664d3c77df67b
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,7 +25,7 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtBase_Meta664d3b8f132ef implements JSONModelInterface
+class JwtSalesChannel_Meta664d3c77df67b implements JSONModelInterface
 {
     
 
@@ -39,7 +39,7 @@ class JwtBase_Meta664d3b8f132ef implements JSONModelInterface
     
 
     /**
-     * JwtBase_Meta664d3b8f132ef constructor.
+     * JwtSalesChannel_Meta664d3c77df67b constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -53,6 +53,8 @@ class JwtBase_Meta664d3b8f132ef implements JSONModelInterface
 
         
 
+        
+            $this->executeBaseValidators($rawModelDataInput);
         
 
         
@@ -68,6 +70,32 @@ class JwtBase_Meta664d3b8f132ef implements JSONModelInterface
         
     }
 
+    
+        protected function executeBaseValidators(array &$modelData): void
+        {
+            $value = &$modelData;
+
+            
+                
+
+if ($additionalProperties =  (static function () use ($modelData): array {
+    $additionalProperties = array_diff(array_keys($modelData), array (
+));
+
+    
+
+    return $additionalProperties;
+})()) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
+  0 => 'JwtSalesChannel_Meta664d3c77df67b',
+  1 => $additionalProperties,
+)));
+}
+
+            
+
+            
+        }
     
 
     /**
