@@ -16,16 +16,16 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtBase
+ * Class JwtCustomer
  * @package Tecsafe\OFCP\JWT\Types 
  *
- * The base structure of a JWT token
+ * The structure of a JWT token for a customer of an authenticated sales channel
  *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtBase implements JSONModelInterface
+class JwtCustomer implements JSONModelInterface
 {
     
 
@@ -39,16 +39,16 @@ class JwtBase implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtBase_Meta664e9f61bc442 The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtCustomer_Meta6682ded782939 The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
         protected $nbf;
     
-        /** @var string The subject of the token, user id, sales channel id, micro service id, etc. */
+        /** @var string The user id of the customer */
         protected $sub;
     
-        /** @var string */
+        /** @var string For customer tokens, the type will always be "customer" */
         protected $type;
     
     /** @var array */
@@ -60,7 +60,7 @@ class JwtBase implements JSONModelInterface
     
 
     /**
-     * JwtBase constructor.
+     * JwtCustomer constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -143,7 +143,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtBase',
+  0 => 'JwtCustomer',
   1 => $additionalProperties,
 )));
 }
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtBase_Meta664e9f61bc442
+             * @return JwtCustomer_Meta6682ded782939
              */
             public function getMeta()
-                : JwtBase_Meta664e9f61bc442
+                : JwtCustomer_Meta6682ded782939
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtBase_Meta664e9f61bc442($value) : $value;
+        return is_array($value) ? new JwtCustomer_Meta6682ded782939($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtBase_Meta664e9f61bc442)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCustomer_Meta6682ded782939)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtBase_Meta664e9f61bc442',
+  1 => 'JwtCustomer_Meta6682ded782939',
 )));
 }
 
@@ -535,7 +535,7 @@ if (!is_float($value)) {
             /**
              * Get the value of sub.
              *
-             * The subject of the token, user id, sales channel id, micro service id, etc.
+             * The user id of the customer
              *
              * @return string
              */
@@ -603,7 +603,7 @@ if (!is_string($value)) {
             /**
              * Get the value of type.
              *
-             * 
+             * For customer tokens, the type will always be "customer"
              *
              * @return string
              */
@@ -615,6 +615,46 @@ if (!is_string($value)) {
                 return $this->type;
             }
 
+            
+                /**
+                 * Set the value of type.
+                 *
+                 * @param string $type For customer tokens, the type will always be "customer"
+                 *
+                 * @throws ErrorRegistryException
+                 *
+                 * @return self
+                 */
+                public function setType(
+                    string $type
+                ): self {
+                    if ($this->type === $type) {
+                        return $this;
+                    }
+
+                    $value = $modelData['type'] = $type;
+
+                    
+                        $this->_errorRegistry = new ErrorRegistryException();
+                    
+
+                    
+
+                    $value = $this->validateType($value, $modelData);
+
+                    
+                        if ($this->_errorRegistry->getErrors()) {
+                            throw $this->_errorRegistry;
+                        }
+                    
+
+                    $this->type = $value;
+                    $this->_rawModelDataInput['type'] = $type;
+
+                    
+
+                    return $this;
+                }
             
 
             /**
@@ -645,38 +685,10 @@ if (!is_string($value)) {
                 
                     
 
-if (!array_key_exists('type', $modelData)) {
-    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
+if ($value !== 'customer') {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidConstException($value ?? null, ...array (
   0 => 'type',
-)));
-}
-
-                
-                    
-
-if (!is_string($value)) {
-    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'type',
-  1 => 'string',
-)));
-}
-
-                
-                    
-
-if (!in_array($value, array (
-   'customer',
-   'sales-channel',
-   'internal',
-), true)) {
-    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\EnumException($value ?? null, ...array (
-  0 => 'type',
-  1 => 
-  array (
-    0 => 'customer',
-    1 => 'sales-channel',
-    2 => 'internal',
-  ),
+  1 => 'customer',
 )));
 }
 

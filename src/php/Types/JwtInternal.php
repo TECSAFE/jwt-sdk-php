@@ -16,16 +16,16 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtCustomer
+ * Class JwtInternal
  * @package Tecsafe\OFCP\JWT\Types 
  *
- * The structure of a JWT token for a customer of an authenticated sales channel
+ * The structure of a JWT token for an internal micro service. A token of this type will only be used for internal communication between micro services.
  *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtCustomer implements JSONModelInterface
+class JwtInternal implements JSONModelInterface
 {
     
 
@@ -39,16 +39,16 @@ class JwtCustomer implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtCustomer_Meta664e9f61bcb6c The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtInternal_Meta6682ded782d92 The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
         protected $nbf;
     
-        /** @var string The user id of the customer */
+        /** @var string The internal micro service id, which requested the token */
         protected $sub;
     
-        /** @var string For customer tokens, the type will always be "customer" */
+        /** @var string For internal tokens, the type will always be "internal" */
         protected $type;
     
     /** @var array */
@@ -60,7 +60,7 @@ class JwtCustomer implements JSONModelInterface
     
 
     /**
-     * JwtCustomer constructor.
+     * JwtInternal constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -143,7 +143,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtCustomer',
+  0 => 'JwtInternal',
   1 => $additionalProperties,
 )));
 }
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtCustomer_Meta664e9f61bcb6c
+             * @return JwtInternal_Meta6682ded782d92
              */
             public function getMeta()
-                : JwtCustomer_Meta664e9f61bcb6c
+                : JwtInternal_Meta6682ded782d92
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtCustomer_Meta664e9f61bcb6c($value) : $value;
+        return is_array($value) ? new JwtInternal_Meta6682ded782d92($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCustomer_Meta664e9f61bcb6c)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtInternal_Meta6682ded782d92)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtCustomer_Meta664e9f61bcb6c',
+  1 => 'JwtInternal_Meta6682ded782d92',
 )));
 }
 
@@ -535,7 +535,7 @@ if (!is_float($value)) {
             /**
              * Get the value of sub.
              *
-             * The user id of the customer
+             * The internal micro service id, which requested the token
              *
              * @return string
              */
@@ -603,7 +603,7 @@ if (!is_string($value)) {
             /**
              * Get the value of type.
              *
-             * For customer tokens, the type will always be "customer"
+             * For internal tokens, the type will always be "internal"
              *
              * @return string
              */
@@ -619,7 +619,7 @@ if (!is_string($value)) {
                 /**
                  * Set the value of type.
                  *
-                 * @param string $type For customer tokens, the type will always be "customer"
+                 * @param string $type For internal tokens, the type will always be "internal"
                  *
                  * @throws ErrorRegistryException
                  *
@@ -685,10 +685,10 @@ if (!is_string($value)) {
                 
                     
 
-if ($value !== 'customer') {
+if ($value !== 'internal') {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidConstException($value ?? null, ...array (
   0 => 'type',
-  1 => 'customer',
+  1 => 'internal',
 )));
 }
 

@@ -16,16 +16,16 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtSalesChannel
+ * Class JwtBase
  * @package Tecsafe\OFCP\JWT\Types 
  *
- * The structure of a JWT token for a registered sales channel Sales channels can request customer tokens with this token
+ * The base structure of a JWT token
  *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtSalesChannel implements JSONModelInterface
+class JwtBase implements JSONModelInterface
 {
     
 
@@ -39,16 +39,16 @@ class JwtSalesChannel implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtSalesChannel_Meta664e9f61bd4a5 The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtBase_Meta6682ded78212e The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
         protected $nbf;
     
-        /** @var string The sales channel id */
+        /** @var string The subject of the token, user id, sales channel id, micro service id, etc. */
         protected $sub;
     
-        /** @var string For sales-channel tokens, the type will always be "sales-channel" */
+        /** @var string */
         protected $type;
     
     /** @var array */
@@ -60,7 +60,7 @@ class JwtSalesChannel implements JSONModelInterface
     
 
     /**
-     * JwtSalesChannel constructor.
+     * JwtBase constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -143,7 +143,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtSalesChannel',
+  0 => 'JwtBase',
   1 => $additionalProperties,
 )));
 }
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtSalesChannel_Meta664e9f61bd4a5
+             * @return JwtBase_Meta6682ded78212e
              */
             public function getMeta()
-                : JwtSalesChannel_Meta664e9f61bd4a5
+                : JwtBase_Meta6682ded78212e
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtSalesChannel_Meta664e9f61bd4a5($value) : $value;
+        return is_array($value) ? new JwtBase_Meta6682ded78212e($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtSalesChannel_Meta664e9f61bd4a5)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtBase_Meta6682ded78212e)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtSalesChannel_Meta664e9f61bd4a5',
+  1 => 'JwtBase_Meta6682ded78212e',
 )));
 }
 
@@ -535,7 +535,7 @@ if (!is_float($value)) {
             /**
              * Get the value of sub.
              *
-             * The sales channel id
+             * The subject of the token, user id, sales channel id, micro service id, etc.
              *
              * @return string
              */
@@ -603,7 +603,7 @@ if (!is_string($value)) {
             /**
              * Get the value of type.
              *
-             * For sales-channel tokens, the type will always be "sales-channel"
+             * 
              *
              * @return string
              */
@@ -615,46 +615,6 @@ if (!is_string($value)) {
                 return $this->type;
             }
 
-            
-                /**
-                 * Set the value of type.
-                 *
-                 * @param string $type For sales-channel tokens, the type will always be "sales-channel"
-                 *
-                 * @throws ErrorRegistryException
-                 *
-                 * @return self
-                 */
-                public function setType(
-                    string $type
-                ): self {
-                    if ($this->type === $type) {
-                        return $this;
-                    }
-
-                    $value = $modelData['type'] = $type;
-
-                    
-                        $this->_errorRegistry = new ErrorRegistryException();
-                    
-
-                    
-
-                    $value = $this->validateType($value, $modelData);
-
-                    
-                        if ($this->_errorRegistry->getErrors()) {
-                            throw $this->_errorRegistry;
-                        }
-                    
-
-                    $this->type = $value;
-                    $this->_rawModelDataInput['type'] = $type;
-
-                    
-
-                    return $this;
-                }
             
 
             /**
@@ -685,10 +645,38 @@ if (!is_string($value)) {
                 
                     
 
-if ($value !== 'sales-channel') {
-    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidConstException($value ?? null, ...array (
+if (!array_key_exists('type', $modelData)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
   0 => 'type',
-  1 => 'sales-channel',
+)));
+}
+
+                
+                    
+
+if (!is_string($value)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+  0 => 'type',
+  1 => 'string',
+)));
+}
+
+                
+                    
+
+if (!in_array($value, array (
+   'customer',
+   'sales-channel',
+   'internal',
+), true)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\EnumException($value ?? null, ...array (
+  0 => 'type',
+  1 => 
+  array (
+    0 => 'customer',
+    1 => 'sales-channel',
+    2 => 'internal',
+  ),
 )));
 }
 

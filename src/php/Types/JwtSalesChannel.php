@@ -16,16 +16,16 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtInternal
+ * Class JwtSalesChannel
  * @package Tecsafe\OFCP\JWT\Types 
  *
- * The structure of a JWT token for an internal micro service. A token of this type will only be used for internal communication between micro services.
+ * The structure of a JWT token for a registered sales channel Sales channels can request customer tokens with this token
  *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtInternal implements JSONModelInterface
+class JwtSalesChannel implements JSONModelInterface
 {
     
 
@@ -39,16 +39,16 @@ class JwtInternal implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtInternal_Meta664e9f61bcedc The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtSalesChannel_Meta6682ded783381 The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
         protected $nbf;
     
-        /** @var string The internal micro service id, which requested the token */
+        /** @var string The sales channel id */
         protected $sub;
     
-        /** @var string For internal tokens, the type will always be "internal" */
+        /** @var string For sales-channel tokens, the type will always be "sales-channel" */
         protected $type;
     
     /** @var array */
@@ -60,7 +60,7 @@ class JwtInternal implements JSONModelInterface
     
 
     /**
-     * JwtInternal constructor.
+     * JwtSalesChannel constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -143,7 +143,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtInternal',
+  0 => 'JwtSalesChannel',
   1 => $additionalProperties,
 )));
 }
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtInternal_Meta664e9f61bcedc
+             * @return JwtSalesChannel_Meta6682ded783381
              */
             public function getMeta()
-                : JwtInternal_Meta664e9f61bcedc
+                : JwtSalesChannel_Meta6682ded783381
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtInternal_Meta664e9f61bcedc($value) : $value;
+        return is_array($value) ? new JwtSalesChannel_Meta6682ded783381($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtInternal_Meta664e9f61bcedc)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtSalesChannel_Meta6682ded783381)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtInternal_Meta664e9f61bcedc',
+  1 => 'JwtSalesChannel_Meta6682ded783381',
 )));
 }
 
@@ -535,7 +535,7 @@ if (!is_float($value)) {
             /**
              * Get the value of sub.
              *
-             * The internal micro service id, which requested the token
+             * The sales channel id
              *
              * @return string
              */
@@ -603,7 +603,7 @@ if (!is_string($value)) {
             /**
              * Get the value of type.
              *
-             * For internal tokens, the type will always be "internal"
+             * For sales-channel tokens, the type will always be "sales-channel"
              *
              * @return string
              */
@@ -619,7 +619,7 @@ if (!is_string($value)) {
                 /**
                  * Set the value of type.
                  *
-                 * @param string $type For internal tokens, the type will always be "internal"
+                 * @param string $type For sales-channel tokens, the type will always be "sales-channel"
                  *
                  * @throws ErrorRegistryException
                  *
@@ -685,10 +685,10 @@ if (!is_string($value)) {
                 
                     
 
-if ($value !== 'internal') {
+if ($value !== 'sales-channel') {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidConstException($value ?? null, ...array (
   0 => 'type',
-  1 => 'internal',
+  1 => 'sales-channel',
 )));
 }
 
