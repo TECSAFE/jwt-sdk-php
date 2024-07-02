@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtCustomer_Meta6683d6ca17fea
+ * Class JwtCustomer_Meta6683d75e90e53
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,7 +25,7 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtCustomer_Meta6683d6ca17fea implements JSONModelInterface
+class JwtCustomer_Meta6683d75e90e53 implements JSONModelInterface
 {
     
 
@@ -45,7 +45,7 @@ class JwtCustomer_Meta6683d6ca17fea implements JSONModelInterface
     
 
     /**
-     * JwtCustomer_Meta6683d6ca17fea constructor.
+     * JwtCustomer_Meta6683d75e90e53 constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -103,7 +103,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtCustomer_Meta6683d6ca17fea',
+  0 => 'JwtCustomer_Meta6683d75e90e53',
   1 => $additionalProperties,
 )));
 }
