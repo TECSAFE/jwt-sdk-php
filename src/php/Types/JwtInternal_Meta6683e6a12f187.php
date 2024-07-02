@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtCustomer_Meta6683d75e90e53
+ * Class JwtInternal_Meta6683e6a12f187
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,16 +25,13 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtCustomer_Meta6683d75e90e53 implements JSONModelInterface
+class JwtInternal_Meta6683e6a12f187 implements JSONModelInterface
 {
     
 
     
-        /** @var string The group of the customer inside of the sales channel */
-        protected $customerGroup;
-    
-        /** @var string The sales channel id of the customer */
-        protected $salesChannelId;
+        /** @var string[] The service names, for which this token can be use. */
+        protected $targetServiceId;
     
     /** @var array */
     protected $_rawModelDataInput = [];
@@ -45,7 +42,7 @@ class JwtCustomer_Meta6683d75e90e53 implements JSONModelInterface
     
 
     /**
-     * JwtCustomer_Meta6683d75e90e53 constructor.
+     * JwtInternal_Meta6683e6a12f187 constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -65,11 +62,7 @@ class JwtCustomer_Meta6683d75e90e53 implements JSONModelInterface
 
         
             
-                $this->processCustomerGroup($rawModelDataInput);
-            
-        
-            
-                $this->processSalesChannelId($rawModelDataInput);
+                $this->processTargetServiceId($rawModelDataInput);
             
         
 
@@ -94,8 +87,7 @@ class JwtCustomer_Meta6683d75e90e53 implements JSONModelInterface
 
 if ($additionalProperties =  (static function () use ($modelData): array {
     $additionalProperties = array_diff(array_keys($modelData), array (
-   'customerGroup',
-   'salesChannelId',
+   'targetServiceId',
 ));
 
     
@@ -103,7 +95,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtCustomer_Meta6683d75e90e53',
+  0 => 'JwtInternal_Meta6683e6a12f187',
   1 => $additionalProperties,
 )));
 }
@@ -127,134 +119,68 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     
         
             /**
-             * Get the value of customerGroup.
+             * Get the value of targetServiceId.
              *
-             * The group of the customer inside of the sales channel
+             * The service names, for which this token can be use.
              *
-             * @return string
+             * @return string[]
              */
-            public function getCustomerGroup()
-                : string
+            public function getTargetServiceId()
+                : array
             {
                 
 
-                return $this->customerGroup;
+                return $this->targetServiceId;
             }
 
             
 
             /**
-             * Extract the value, perform validations and set the property customerGroup
+             * Extract the value, perform validations and set the property targetServiceId
              *
              * @param array $modelData
              *
              * @throws ErrorRegistryException
              */
-            protected function processCustomerGroup(array $modelData): void
+            protected function processTargetServiceId(array $modelData): void
             {
                 
                     
                 
 
-                $value = array_key_exists('customerGroup', $modelData) ? $modelData['customerGroup'] : $this->customerGroup;
+                $value = array_key_exists('targetServiceId', $modelData) ? $modelData['targetServiceId'] : $this->targetServiceId;
 
                 
 
-                $this->customerGroup = $this->validateCustomerGroup($value, $modelData);
+                $this->targetServiceId = $this->validateTargetServiceId($value, $modelData);
             }
 
             /**
-             * Execute all validators for the property customerGroup
+             * Execute all validators for the property targetServiceId
              */
-            protected function validateCustomerGroup($value, array $modelData)
+            protected function validateTargetServiceId($value, array $modelData)
             {
                 
                     
 
-if (!array_key_exists('customerGroup', $modelData)) {
+if (!array_key_exists('targetServiceId', $modelData)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
-  0 => 'customerGroup',
+  0 => 'targetServiceId',
 )));
 }
 
                 
                     
 
-if (!is_string($value)) {
+if (!is_array($value)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'customerGroup',
-  1 => 'string',
+  0 => 'targetServiceId',
+  1 => 'array',
 )));
 }
 
                 
-
-                return $value;
-            }
-        
-    
-        
-            /**
-             * Get the value of salesChannelId.
-             *
-             * The sales channel id of the customer
-             *
-             * @return string
-             */
-            public function getSalesChannelId()
-                : string
-            {
-                
-
-                return $this->salesChannelId;
-            }
-
-            
-
-            /**
-             * Extract the value, perform validations and set the property salesChannelId
-             *
-             * @param array $modelData
-             *
-             * @throws ErrorRegistryException
-             */
-            protected function processSalesChannelId(array $modelData): void
-            {
-                
-                    
-                
-
-                $value = array_key_exists('salesChannelId', $modelData) ? $modelData['salesChannelId'] : $this->salesChannelId;
-
-                
-
-                $this->salesChannelId = $this->validateSalesChannelId($value, $modelData);
-            }
-
-            /**
-             * Execute all validators for the property salesChannelId
-             */
-            protected function validateSalesChannelId($value, array $modelData)
-            {
-                
-                    
-
-if (!array_key_exists('salesChannelId', $modelData)) {
-    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
-  0 => 'salesChannelId',
-)));
-}
-
-                
-                    
-
-if (!is_string($value)) {
-    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'salesChannelId',
-  1 => 'string',
-)));
-}
-
+                    $this->validateTargetServiceId_ArrayItem_6683e6a12f46d($value);
                 
 
                 return $value;
@@ -262,7 +188,61 @@ if (!is_string($value)) {
         
     
 
+    private function validateTargetServiceId_ArrayItem_6683e6a12f46d(&$value): void {
+                    $invalidItems_f6a2b882170f9497d5b0ba0f16b2151a = [];
+                    
+                    if (is_array($value) && (function (&$items) use (&$invalidItems_f6a2b882170f9497d5b0ba0f16b2151a) {
     
+        $originalErrorRegistry = $this->_errorRegistry;
+    
+
+    foreach ($items as $index => &$value) {
+        
+            $this->_errorRegistry = new ErrorRegistryException();
+        
+
+        try {
+            
+
+            
+                
+
+if (!is_string($value)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+  0 => 'item of array targetServiceId',
+  1 => 'string',
+)));
+}
+
+            
+
+            
+                if ($this->_errorRegistry->getErrors()) {
+                    $invalidItems_f6a2b882170f9497d5b0ba0f16b2151a[$index] = $this->_errorRegistry->getErrors();
+                }
+            
+        } catch (\Exception $e) {
+            // collect all errors concerning invalid items
+            isset($invalidItems_f6a2b882170f9497d5b0ba0f16b2151a[$index])
+                ? $invalidItems_f6a2b882170f9497d5b0ba0f16b2151a[$index][] = $e
+                : $invalidItems_f6a2b882170f9497d5b0ba0f16b2151a[$index] = [$e];
+        }
+    }
+
+    
+        $this->_errorRegistry = $originalErrorRegistry;
+    
+
+    return !empty($invalidItems_f6a2b882170f9497d5b0ba0f16b2151a);
+})($value)) {
+                        $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
+  0 => 'targetServiceId',
+  1 => $invalidItems_f6a2b882170f9497d5b0ba0f16b2151a,
+)));
+                    }
+                }
+
+
 }
 
 // @codeCoverageIgnoreEnd
