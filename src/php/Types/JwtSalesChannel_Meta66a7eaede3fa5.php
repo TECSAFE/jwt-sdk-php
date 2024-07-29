@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtSalesChannel_Meta66a7e8bee70ec
+ * Class JwtSalesChannel_Meta66a7eaede3fa5
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,10 +25,13 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtSalesChannel_Meta66a7e8bee70ec implements JSONModelInterface
+class JwtSalesChannel_Meta66a7eaede3fa5 implements JSONModelInterface
 {
     
 
+    
+        /** @var string The sales channel access key of the headless shop */
+        protected $accessKey;
     
     /** @var array */
     protected $_rawModelDataInput = [];
@@ -39,7 +42,7 @@ class JwtSalesChannel_Meta66a7e8bee70ec implements JSONModelInterface
     
 
     /**
-     * JwtSalesChannel_Meta66a7e8bee70ec constructor.
+     * JwtSalesChannel_Meta66a7eaede3fa5 constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -57,6 +60,10 @@ class JwtSalesChannel_Meta66a7e8bee70ec implements JSONModelInterface
             $this->executeBaseValidators($rawModelDataInput);
         
 
+        
+            
+                $this->processAccessKey($rawModelDataInput);
+            
         
 
         
@@ -80,6 +87,7 @@ class JwtSalesChannel_Meta66a7e8bee70ec implements JSONModelInterface
 
 if ($additionalProperties =  (static function () use ($modelData): array {
     $additionalProperties = array_diff(array_keys($modelData), array (
+   'accessKey',
 ));
 
     
@@ -87,7 +95,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtSalesChannel_Meta66a7e8bee70ec',
+  0 => 'JwtSalesChannel_Meta66a7eaede3fa5',
   1 => $additionalProperties,
 )));
 }
@@ -108,6 +116,74 @@ if ($additionalProperties =  (static function () use ($modelData): array {
         return $this->_rawModelDataInput;
     }
 
+    
+        
+            /**
+             * Get the value of accessKey.
+             *
+             * The sales channel access key of the headless shop
+             *
+             * @return string
+             */
+            public function getAccessKey()
+                : string
+            {
+                
+
+                return $this->accessKey;
+            }
+
+            
+
+            /**
+             * Extract the value, perform validations and set the property accessKey
+             *
+             * @param array $modelData
+             *
+             * @throws ErrorRegistryException
+             */
+            protected function processAccessKey(array $modelData): void
+            {
+                
+                    
+                
+
+                $value = array_key_exists('accessKey', $modelData) ? $modelData['accessKey'] : $this->accessKey;
+
+                
+
+                $this->accessKey = $this->validateAccessKey($value, $modelData);
+            }
+
+            /**
+             * Execute all validators for the property accessKey
+             */
+            protected function validateAccessKey($value, array $modelData)
+            {
+                
+                    
+
+if (!array_key_exists('accessKey', $modelData)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
+  0 => 'accessKey',
+)));
+}
+
+                
+                    
+
+if (!is_string($value)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+  0 => 'accessKey',
+  1 => 'string',
+)));
+}
+
+                
+
+                return $value;
+            }
+        
     
 
     
