@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtInternal_Meta66a7eb887bcbd
+ * Class JwtInternal_Meta66d6baff16213
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,7 +25,7 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtInternal_Meta66a7eb887bcbd implements JSONModelInterface
+class JwtInternal_Meta66d6baff16213 implements JSONModelInterface
 {
     
 
@@ -42,7 +42,7 @@ class JwtInternal_Meta66a7eb887bcbd implements JSONModelInterface
     
 
     /**
-     * JwtInternal_Meta66a7eb887bcbd constructor.
+     * JwtInternal_Meta66d6baff16213 constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -95,7 +95,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtInternal_Meta66a7eb887bcbd',
+  0 => 'JwtInternal_Meta66d6baff16213',
   1 => $additionalProperties,
 )));
 }
@@ -180,7 +180,7 @@ if (!is_array($value)) {
 }
 
                 
-                    $this->validateTargetServiceId_ArrayItem_66a7eb887bfc8($value);
+                    $this->validateTargetServiceId_ArrayItem_66d6baff164d5($value);
                 
 
                 return $value;
@@ -188,7 +188,7 @@ if (!is_array($value)) {
         
     
 
-    private function validateTargetServiceId_ArrayItem_66a7eb887bfc8(&$value): void {
+    private function validateTargetServiceId_ArrayItem_66d6baff164d5(&$value): void {
                     $invalidItems_f6a2b882170f9497d5b0ba0f16b2151a = [];
                     
                     if (is_array($value) && (function (&$items) use (&$invalidItems_f6a2b882170f9497d5b0ba0f16b2151a) {
