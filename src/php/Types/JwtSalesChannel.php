@@ -39,7 +39,7 @@ class JwtSalesChannel implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtSalesChannel_Meta66d9900639f97 The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtSalesChannel_Meta66d9965d2b5d8 The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtSalesChannel_Meta66d9900639f97
+             * @return JwtSalesChannel_Meta66d9965d2b5d8
              */
             public function getMeta()
-                : JwtSalesChannel_Meta66d9900639f97
+                : JwtSalesChannel_Meta66d9965d2b5d8
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtSalesChannel_Meta66d9900639f97($value) : $value;
+        return is_array($value) ? new JwtSalesChannel_Meta66d9965d2b5d8($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtSalesChannel_Meta66d9900639f97)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtSalesChannel_Meta66d9965d2b5d8)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtSalesChannel_Meta66d9900639f97',
+  1 => 'JwtSalesChannel_Meta66d9965d2b5d8',
 )));
 }
 
