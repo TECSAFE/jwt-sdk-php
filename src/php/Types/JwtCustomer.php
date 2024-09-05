@@ -39,7 +39,7 @@ class JwtCustomer implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtCustomer_Meta66d98ff05b546 The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtCustomer_Meta66d990063939b The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtCustomer_Meta66d98ff05b546
+             * @return JwtCustomer_Meta66d990063939b
              */
             public function getMeta()
-                : JwtCustomer_Meta66d98ff05b546
+                : JwtCustomer_Meta66d990063939b
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtCustomer_Meta66d98ff05b546($value) : $value;
+        return is_array($value) ? new JwtCustomer_Meta66d990063939b($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCustomer_Meta66d98ff05b546)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCustomer_Meta66d990063939b)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtCustomer_Meta66d98ff05b546',
+  1 => 'JwtCustomer_Meta66d990063939b',
 )));
 }
 
