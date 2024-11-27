@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtCustomer_Meta66da90d042a8e
+ * Class JwtCustomer_Meta67466f4d2d12a
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,7 +25,7 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtCustomer_Meta66da90d042a8e implements JSONModelInterface
+class JwtCustomer_Meta67466f4d2d12a implements JSONModelInterface
 {
     
 
@@ -36,11 +36,20 @@ class JwtCustomer_Meta66da90d042a8e implements JSONModelInterface
         /** @var string The sales channel context token of the headless shop */
         protected $contextToken;
     
-        /** @var string The group of the customer inside of the sales channel */
-        protected $customerGroup;
+        /** @var string Currency of the customer */
+        protected $currencyId;
+    
+        /** @var string The group id of the customer inside of the sales channel */
+        protected $customerGroupId;
     
         /** @var string|null A from the external sales channel provided customer id */
         protected $customerIdentifier;
+    
+        /** @var string|null The customer's email address, in most cases only available if guest is false */
+        protected $email;
+    
+        /** @var string|null The external group id of the customer */
+        protected $externalGroupId;
     
         /** @var bool Is the customer an guest customer? */
         protected $guest;
@@ -57,7 +66,7 @@ class JwtCustomer_Meta66da90d042a8e implements JSONModelInterface
     
 
     /**
-     * JwtCustomer_Meta66da90d042a8e constructor.
+     * JwtCustomer_Meta67466f4d2d12a constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -85,11 +94,23 @@ class JwtCustomer_Meta66da90d042a8e implements JSONModelInterface
             
         
             
-                $this->processCustomerGroup($rawModelDataInput);
+                $this->processCurrencyId($rawModelDataInput);
+            
+        
+            
+                $this->processCustomerGroupId($rawModelDataInput);
             
         
             
                 $this->processCustomerIdentifier($rawModelDataInput);
+            
+        
+            
+                $this->processEmail($rawModelDataInput);
+            
+        
+            
+                $this->processExternalGroupId($rawModelDataInput);
             
         
             
@@ -124,8 +145,11 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     $additionalProperties = array_diff(array_keys($modelData), array (
    'accessKey',
    'contextToken',
-   'customerGroup',
+   'currencyId',
+   'customerGroupId',
    'customerIdentifier',
+   'email',
+   'externalGroupId',
    'guest',
    'salesChannelId',
 ));
@@ -135,7 +159,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtCustomer_Meta66da90d042a8e',
+  0 => 'JwtCustomer_Meta67466f4d2d12a',
   1 => $additionalProperties,
 )));
 }
@@ -295,53 +319,53 @@ if (!is_string($value)) {
     
         
             /**
-             * Get the value of customerGroup.
+             * Get the value of currencyId.
              *
-             * The group of the customer inside of the sales channel
+             * Currency of the customer
              *
              * @return string
              */
-            public function getCustomerGroup()
+            public function getCurrencyId()
                 : string
             {
                 
 
-                return $this->customerGroup;
+                return $this->currencyId;
             }
 
             
 
             /**
-             * Extract the value, perform validations and set the property customerGroup
+             * Extract the value, perform validations and set the property currencyId
              *
              * @param array $modelData
              *
              * @throws ErrorRegistryException
              */
-            protected function processCustomerGroup(array $modelData): void
+            protected function processCurrencyId(array $modelData): void
             {
                 
                     
                 
 
-                $value = array_key_exists('customerGroup', $modelData) ? $modelData['customerGroup'] : $this->customerGroup;
+                $value = array_key_exists('currencyId', $modelData) ? $modelData['currencyId'] : $this->currencyId;
 
                 
 
-                $this->customerGroup = $this->validateCustomerGroup($value, $modelData);
+                $this->currencyId = $this->validateCurrencyId($value, $modelData);
             }
 
             /**
-             * Execute all validators for the property customerGroup
+             * Execute all validators for the property currencyId
              */
-            protected function validateCustomerGroup($value, array $modelData)
+            protected function validateCurrencyId($value, array $modelData)
             {
                 
                     
 
-if (!array_key_exists('customerGroup', $modelData)) {
+if (!array_key_exists('currencyId', $modelData)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
-  0 => 'customerGroup',
+  0 => 'currencyId',
 )));
 }
 
@@ -350,7 +374,75 @@ if (!array_key_exists('customerGroup', $modelData)) {
 
 if (!is_string($value)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'customerGroup',
+  0 => 'currencyId',
+  1 => 'string',
+)));
+}
+
+                
+
+                return $value;
+            }
+        
+    
+        
+            /**
+             * Get the value of customerGroupId.
+             *
+             * The group id of the customer inside of the sales channel
+             *
+             * @return string
+             */
+            public function getCustomerGroupId()
+                : string
+            {
+                
+
+                return $this->customerGroupId;
+            }
+
+            
+
+            /**
+             * Extract the value, perform validations and set the property customerGroupId
+             *
+             * @param array $modelData
+             *
+             * @throws ErrorRegistryException
+             */
+            protected function processCustomerGroupId(array $modelData): void
+            {
+                
+                    
+                
+
+                $value = array_key_exists('customerGroupId', $modelData) ? $modelData['customerGroupId'] : $this->customerGroupId;
+
+                
+
+                $this->customerGroupId = $this->validateCustomerGroupId($value, $modelData);
+            }
+
+            /**
+             * Execute all validators for the property customerGroupId
+             */
+            protected function validateCustomerGroupId($value, array $modelData)
+            {
+                
+                    
+
+if (!array_key_exists('customerGroupId', $modelData)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
+  0 => 'customerGroupId',
+)));
+}
+
+                
+                    
+
+if (!is_string($value)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+  0 => 'customerGroupId',
   1 => 'string',
 )));
 }
@@ -419,6 +511,150 @@ if (!array_key_exists('customerIdentifier', $modelData)) {
 if (!is_string($value) && !is_null($value)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'customerIdentifier',
+  1 => 
+  array (
+    0 => 'string',
+    1 => 'null',
+  ),
+)));
+}
+
+                
+
+                return $value;
+            }
+        
+    
+        
+            /**
+             * Get the value of email.
+             *
+             * The customer's email address, in most cases only available if guest is false
+             *
+             * @return string|null
+             */
+            public function getEmail()
+                
+            {
+                
+
+                return $this->email;
+            }
+
+            
+
+            /**
+             * Extract the value, perform validations and set the property email
+             *
+             * @param array $modelData
+             *
+             * @throws ErrorRegistryException
+             */
+            protected function processEmail(array $modelData): void
+            {
+                
+                    
+                
+
+                $value = array_key_exists('email', $modelData) ? $modelData['email'] : $this->email;
+
+                
+
+                $this->email = $this->validateEmail($value, $modelData);
+            }
+
+            /**
+             * Execute all validators for the property email
+             */
+            protected function validateEmail($value, array $modelData)
+            {
+                
+                    
+
+if (!array_key_exists('email', $modelData)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
+  0 => 'email',
+)));
+}
+
+                
+                    
+
+if (!is_string($value) && !is_null($value)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+  0 => 'email',
+  1 => 
+  array (
+    0 => 'string',
+    1 => 'null',
+  ),
+)));
+}
+
+                
+
+                return $value;
+            }
+        
+    
+        
+            /**
+             * Get the value of externalGroupId.
+             *
+             * The external group id of the customer
+             *
+             * @return string|null
+             */
+            public function getExternalGroupId()
+                
+            {
+                
+
+                return $this->externalGroupId;
+            }
+
+            
+
+            /**
+             * Extract the value, perform validations and set the property externalGroupId
+             *
+             * @param array $modelData
+             *
+             * @throws ErrorRegistryException
+             */
+            protected function processExternalGroupId(array $modelData): void
+            {
+                
+                    
+                
+
+                $value = array_key_exists('externalGroupId', $modelData) ? $modelData['externalGroupId'] : $this->externalGroupId;
+
+                
+
+                $this->externalGroupId = $this->validateExternalGroupId($value, $modelData);
+            }
+
+            /**
+             * Execute all validators for the property externalGroupId
+             */
+            protected function validateExternalGroupId($value, array $modelData)
+            {
+                
+                    
+
+if (!array_key_exists('externalGroupId', $modelData)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
+  0 => 'externalGroupId',
+)));
+}
+
+                
+                    
+
+if (!is_string($value) && !is_null($value)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+  0 => 'externalGroupId',
   1 => 
   array (
     0 => 'string',
