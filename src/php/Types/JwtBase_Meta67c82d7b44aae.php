@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtBase_Meta67c82d72494cd
+ * Class JwtBase_Meta67c82d7b44aae
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,7 +25,7 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtBase_Meta67c82d72494cd implements JSONModelInterface
+class JwtBase_Meta67c82d7b44aae implements JSONModelInterface
 {
     
 
@@ -39,7 +39,7 @@ class JwtBase_Meta67c82d72494cd implements JSONModelInterface
     
 
     /**
-     * JwtBase_Meta67c82d72494cd constructor.
+     * JwtBase_Meta67c82d7b44aae constructor.
      *
      * @param array $rawModelDataInput
      *

@@ -39,7 +39,7 @@ class JwtBase implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtBase_Meta67c82d72494cd The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtBase_Meta67c82d7b44aae The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtBase_Meta67c82d72494cd
+             * @return JwtBase_Meta67c82d7b44aae
              */
             public function getMeta()
-                : JwtBase_Meta67c82d72494cd
+                : JwtBase_Meta67c82d7b44aae
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtBase_Meta67c82d72494cd($value) : $value;
+        return is_array($value) ? new JwtBase_Meta67c82d7b44aae($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtBase_Meta67c82d72494cd)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtBase_Meta67c82d7b44aae)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtBase_Meta67c82d72494cd',
+  1 => 'JwtBase_Meta67c82d7b44aae',
 )));
 }
 
