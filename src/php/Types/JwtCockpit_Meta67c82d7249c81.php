@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtCockpit_Meta67c7d090c313f
+ * Class JwtCockpit_Meta67c82d7249c81
  * @package Tecsafe\OFCP\JWT\Types 
  *
  * The meta object contains additional information about the token, or the token's owner
@@ -25,7 +25,7 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtCockpit_Meta67c7d090c313f implements JSONModelInterface
+class JwtCockpit_Meta67c82d7249c81 implements JSONModelInterface
 {
     
 
@@ -39,6 +39,9 @@ class JwtCockpit_Meta67c7d090c313f implements JSONModelInterface
         /** @var string The user's last name */
         protected $lastName;
     
+        /** @var string The OIDC providers subject identifier */
+        protected $oidcSub;
+    
         /** @var string The user's organization */
         protected $organization;
     
@@ -51,7 +54,7 @@ class JwtCockpit_Meta67c7d090c313f implements JSONModelInterface
     
 
     /**
-     * JwtCockpit_Meta67c7d090c313f constructor.
+     * JwtCockpit_Meta67c82d7249c81 constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -83,6 +86,10 @@ class JwtCockpit_Meta67c7d090c313f implements JSONModelInterface
             
         
             
+                $this->processOidcSub($rawModelDataInput);
+            
+        
+            
                 $this->processOrganization($rawModelDataInput);
             
         
@@ -111,6 +118,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
    'email',
    'firstName',
    'lastName',
+   'oidcSub',
    'organization',
 ));
 
@@ -119,7 +127,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtCockpit_Meta67c7d090c313f',
+  0 => 'JwtCockpit_Meta67c82d7249c81',
   1 => $additionalProperties,
 )));
 }
@@ -335,6 +343,74 @@ if (!array_key_exists('lastName', $modelData)) {
 if (!is_string($value)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'lastName',
+  1 => 'string',
+)));
+}
+
+                
+
+                return $value;
+            }
+        
+    
+        
+            /**
+             * Get the value of oidcSub.
+             *
+             * The OIDC providers subject identifier
+             *
+             * @return string
+             */
+            public function getOidcSub()
+                : string
+            {
+                
+
+                return $this->oidcSub;
+            }
+
+            
+
+            /**
+             * Extract the value, perform validations and set the property oidcSub
+             *
+             * @param array $modelData
+             *
+             * @throws ErrorRegistryException
+             */
+            protected function processOidcSub(array $modelData): void
+            {
+                
+                    
+                
+
+                $value = array_key_exists('oidcSub', $modelData) ? $modelData['oidcSub'] : $this->oidcSub;
+
+                
+
+                $this->oidcSub = $this->validateOidcSub($value, $modelData);
+            }
+
+            /**
+             * Execute all validators for the property oidcSub
+             */
+            protected function validateOidcSub($value, array $modelData)
+            {
+                
+                    
+
+if (!array_key_exists('oidcSub', $modelData)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\RequiredValueException($value ?? null, ...array (
+  0 => 'oidcSub',
+)));
+}
+
+                
+                    
+
+if (!is_string($value)) {
+    $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+  0 => 'oidcSub',
   1 => 'string',
 )));
 }
