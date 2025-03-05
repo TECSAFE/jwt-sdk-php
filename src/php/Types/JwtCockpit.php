@@ -16,16 +16,16 @@ declare(strict_types = 1);
 
 
 /**
- * Class JwtCustomer
+ * Class JwtCockpit
  * @package Tecsafe\OFCP\JWT\Types 
  *
- * The structure of a JWT token for a customer of an authenticated sales channel
+ * The structure of a JWT token for an cockpit user.
  *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will lose your changes if the classes
  * are re-generated.
  */
-class JwtCustomer implements JSONModelInterface
+class JwtCockpit implements JSONModelInterface
 {
     
 
@@ -39,16 +39,16 @@ class JwtCustomer implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtCustomer_Meta67c7d067c9e81 The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtCockpit_Meta67c7d067c9a4e The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
         protected $nbf;
     
-        /** @var string The user id of the customer */
+        /** @var string The user id of the cockpit user */
         protected $sub;
     
-        /** @var string For customer tokens, the type will always be "customer" */
+        /** @var string For cockpit tokens, the type will always be "cockpit" */
         protected $type;
     
     /** @var array */
@@ -60,7 +60,7 @@ class JwtCustomer implements JSONModelInterface
     
 
     /**
-     * JwtCustomer constructor.
+     * JwtCockpit constructor.
      *
      * @param array $rawModelDataInput
      *
@@ -143,7 +143,7 @@ if ($additionalProperties =  (static function () use ($modelData): array {
     return $additionalProperties;
 })()) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'JwtCustomer',
+  0 => 'JwtCockpit',
   1 => $additionalProperties,
 )));
 }
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtCustomer_Meta67c7d067c9e81
+             * @return JwtCockpit_Meta67c7d067c9a4e
              */
             public function getMeta()
-                : JwtCustomer_Meta67c7d067c9e81
+                : JwtCockpit_Meta67c7d067c9a4e
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtCustomer_Meta67c7d067c9e81($value) : $value;
+        return is_array($value) ? new JwtCockpit_Meta67c7d067c9a4e($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCustomer_Meta67c7d067c9e81)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCockpit_Meta67c7d067c9a4e)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtCustomer_Meta67c7d067c9e81',
+  1 => 'JwtCockpit_Meta67c7d067c9a4e',
 )));
 }
 
@@ -535,7 +535,7 @@ if (!is_float($value)) {
             /**
              * Get the value of sub.
              *
-             * The user id of the customer
+             * The user id of the cockpit user
              *
              * @return string
              */
@@ -603,7 +603,7 @@ if (!is_string($value)) {
             /**
              * Get the value of type.
              *
-             * For customer tokens, the type will always be "customer"
+             * For cockpit tokens, the type will always be "cockpit"
              *
              * @return string
              */
@@ -619,7 +619,7 @@ if (!is_string($value)) {
                 /**
                  * Set the value of type.
                  *
-                 * @param string $type For customer tokens, the type will always be "customer"
+                 * @param string $type For cockpit tokens, the type will always be "cockpit"
                  *
                  * @throws ErrorRegistryException
                  *
@@ -685,10 +685,10 @@ if (!is_string($value)) {
                 
                     
 
-if ($value !== 'customer') {
+if ($value !== 'cockpit') {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Generic\InvalidConstException($value ?? null, ...array (
   0 => 'type',
-  1 => 'customer',
+  1 => 'cockpit',
 )));
 }
 
