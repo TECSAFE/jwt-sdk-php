@@ -39,7 +39,7 @@ class JwtCockpit implements JSONModelInterface
         /** @var string The issuer of the token, usually will equal to "api-gateway" */
         protected $iss;
     
-        /** @var JwtCockpit_Meta67d489b71f27b The meta object contains additional information about the token, or the token's owner */
+        /** @var JwtCockpit_Meta67d48a617234c The meta object contains additional information about the token, or the token's owner */
         protected $meta;
     
         /** @var float Unix timestamp of when the token becomes active */
@@ -375,10 +375,10 @@ if (!is_string($value)) {
              *
              * The meta object contains additional information about the token, or the token's owner
              *
-             * @return JwtCockpit_Meta67d489b71f27b
+             * @return JwtCockpit_Meta67d48a617234c
              */
             public function getMeta()
-                : JwtCockpit_Meta67d489b71f27b
+                : JwtCockpit_Meta67d48a617234c
             {
                 
 
@@ -404,7 +404,7 @@ if (!is_string($value)) {
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new JwtCockpit_Meta67d489b71f27b($value) : $value;
+        return is_array($value) ? new JwtCockpit_Meta67d48a617234c($value) : $value;
     } catch (\Exception $instantiationException) {
         
             $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -450,10 +450,10 @@ if (!is_object($value)) {
                 
                     
 
-if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCockpit_Meta67d489b71f27b)) {
+if (is_object($value) && !($value instanceof \Exception) && !($value instanceof JwtCockpit_Meta67d48a617234c)) {
     $this->_errorRegistry->addError(new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'meta',
-  1 => 'JwtCockpit_Meta67d489b71f27b',
+  1 => 'JwtCockpit_Meta67d48a617234c',
 )));
 }
 
