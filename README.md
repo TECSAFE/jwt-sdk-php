@@ -1,7 +1,7 @@
 WARNING: This repository is automatically generated from the jwt-sdk repository.
 Do not edit files in this repository directly.
 
-# JWT SDK
+# [JWT SDK](https://github.com/tecsafe/jwt-sdk)
 
 This repo contains the JWT SDK for parsing and validating JWT tokens from OFCP. The main code is
 written in TypeScript, but we also provide a JsonSchema and a PHP equivalent.
@@ -31,7 +31,7 @@ curl -O https://tecsafe.github.io/jwt-sdk/json-schema/latest.json
 **TypeScript** / **JavaScript**:
 
 ```typescript
-import { getJWK, parseUnknownJwt } from '@tecsafe/jwt-sdk';
+import { getJWK, parseUnknownJwt, compareRoles } from '@tecsafe/jwt-sdk';
 
 const TOKEN = 'eyJhbGci...';
 
@@ -39,16 +39,20 @@ const jwk = await getJWK();
 const body = parseUnknownJwt(TOKEN, jwk);
 // or if you don't want to validate the signature, and just want to parse the token
 const body = parseUnknownJwt(TOKEN);
+
+// compare roles
+const isAllowed = compareRoles(body.meta.role, 'COMPANY_ADMIN');
 ```
 
 Visit https://tecsafe.github.io/jwt-sdk/ for a more detailed documentation.
 
 **PHP**:
 
-First of all, you need an implementation for 
- - [psr/http-factory](https://packagist.org/providers/psr/http-factory-implementation)
- - [psr/simple-cache](https://packagist.org/providers/psr/simple-cache-implementation)
- - [psr/http-client](https://packagist.org/providers/psr/http-client-implementation)
+First of all, you need an implementation for
+
+- [psr/http-factory](https://packagist.org/providers/psr/http-factory-implementation)
+- [psr/simple-cache](https://packagist.org/providers/psr/simple-cache-implementation)
+- [psr/http-client](https://packagist.org/providers/psr/http-client-implementation)
 
 
 Example:
