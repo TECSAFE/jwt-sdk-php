@@ -32,20 +32,24 @@ class JwtCockpitMeta implements JsonSerializable
         /**
          * The role of the user
          */
-        public CockpitRole $role
+        public CockpitRole $role,
+        /**
+         * Der ursprüngliche Token-String
+         */
+        public ?string $rawToken = null
     ) {}
 
-    public static function fromJson(string|array $data): JwtCockpitMeta
+    public static function fromJson(string|array $data, ?string $rawToken = null): JwtCockpitMeta
     {
         if (!is_array($data)) {
             $data = json_decode($data, true);
         }
 
-        return new JwtCockpitMeta($data['email'], $data['firstName'], $data['lastName'], $data['oidcSub'], $data['organization'], CockpitRole::from($data['role']));
+        return new JwtCockpitMeta($data['email'], $data['firstName'], $data['lastName'], $data['oidcSub'], $data['organization'], CockpitRole::from($data['role']), $rawToken);
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
-        return ['email' => $this->email, 'firstName' => $this->firstName, 'lastName' => $this->lastName, 'oidcSub' => $this->oidcSub, 'organization' => $this->organization, 'role' => $this->role];
+        return ['email' => $this->email, 'firstName' => $this->firstName, 'lastName' => $this->lastName, 'oidcSub' => $this->oidcSub, 'organization' => $this->organization, 'role' => $this->role, 'rawToken' => $this->rawToken];
     }
 }

@@ -8,19 +8,24 @@ use JsonSerializable;
 
 class JwtBaseMeta implements JsonSerializable
 {
-    public function __construct() {}
+    public function __construct(
+        /**
+         * Der ursprüngliche Token-String
+         */
+        public ?string $rawToken = null
+    ) {}
 
-    public static function fromJson(string|array $data): JwtBaseMeta
+    public static function fromJson(string|array $data, ?string $rawToken = null): JwtBaseMeta
     {
         if (!is_array($data)) {
             $data = json_decode($data, true);
         }
 
-        return new JwtBaseMeta();
+        return new JwtBaseMeta($rawToken);
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
-        return [];
+        return ['rawToken' => $this->rawToken];
     }
 }

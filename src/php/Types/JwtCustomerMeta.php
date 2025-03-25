@@ -48,20 +48,24 @@ class JwtCustomerMeta implements JsonSerializable
         /**
          * The sales channel id of the customer
          */
-        public string $salesChannelId
+        public string $salesChannelId,
+        /**
+         * Der ursprüngliche Token-String
+         */
+        public ?string $rawToken = null
     ) {}
 
-    public static function fromJson(string|array $data): JwtCustomerMeta
+    public static function fromJson(string|array $data, ?string $rawToken = null): JwtCustomerMeta
     {
         if (!is_array($data)) {
             $data = json_decode($data, true);
         }
 
-        return new JwtCustomerMeta($data['accessKey'], $data['contextToken'], $data['currencyId'], $data['currencyIso'], $data['customerGroupId'], $data['customerIdentifier'], $data['email'], $data['externalGroupName'], $data['guest'], $data['salesChannelId']);
+        return new JwtCustomerMeta($data['accessKey'], $data['contextToken'], $data['currencyId'], $data['currencyIso'], $data['customerGroupId'], $data['customerIdentifier'], $data['email'], $data['externalGroupName'], $data['guest'], $data['salesChannelId'], $rawToken);
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
-        return ['accessKey' => $this->accessKey, 'contextToken' => $this->contextToken, 'currencyId' => $this->currencyId, 'currencyIso' => $this->currencyIso, 'customerGroupId' => $this->customerGroupId, 'customerIdentifier' => $this->customerIdentifier, 'email' => $this->email, 'externalGroupName' => $this->externalGroupName, 'guest' => $this->guest, 'salesChannelId' => $this->salesChannelId];
+        return ['accessKey' => $this->accessKey, 'contextToken' => $this->contextToken, 'currencyId' => $this->currencyId, 'currencyIso' => $this->currencyIso, 'customerGroupId' => $this->customerGroupId, 'customerIdentifier' => $this->customerIdentifier, 'email' => $this->email, 'externalGroupName' => $this->externalGroupName, 'guest' => $this->guest, 'salesChannelId' => $this->salesChannelId, 'rawToken' => $this->rawToken];
     }
 }

@@ -43,20 +43,24 @@ class JwtBase implements JsonSerializable
         /**
          * The token's type,
          */
-        public JwtType $type
+        public JwtType $type,
+        /**
+         * Der ursprüngliche Token-String
+         */
+        public ?string $rawToken = null
     ) {}
 
-    public static function fromJson(string|array $data): JwtBase
+    public static function fromJson(string|array $data, ?string $rawToken = null): JwtBase
     {
         if (!is_array($data)) {
             $data = json_decode($data, true);
         }
 
-        return new JwtBase($data['exp'], $data['iat'], $data['iss'], $data['jti'], JwtBaseMeta::fromJson($data['meta']), $data['nbf'], $data['sub'], JwtType::from($data['type']));
+        return new JwtBase($data['exp'], $data['iat'], $data['iss'], $data['jti'], JwtBaseMeta::fromJson($data['meta']), $data['nbf'], $data['sub'], JwtType::from($data['type']), $rawToken);
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
-        return ['exp' => $this->exp, 'iat' => $this->iat, 'iss' => $this->iss, 'jti' => $this->jti, 'meta' => $this->meta, 'nbf' => $this->nbf, 'sub' => $this->sub, 'type' => $this->type];
+        return ['exp' => $this->exp, 'iat' => $this->iat, 'iss' => $this->iss, 'jti' => $this->jti, 'meta' => $this->meta, 'nbf' => $this->nbf, 'sub' => $this->sub, 'type' => $this->type, 'rawToken' => $this->rawToken];
     }
 }

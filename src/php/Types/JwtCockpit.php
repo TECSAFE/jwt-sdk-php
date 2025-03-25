@@ -43,20 +43,24 @@ class JwtCockpit implements JsonSerializable
         /**
          * For cockpit tokens, the type will always be "cockpit"
          */
-        public JwtType $type
+        public JwtType $type,
+        /**
+         * Der ursprüngliche Token-String
+         */
+        public ?string $rawToken = null
     ) {}
 
-    public static function fromJson(string|array $data): JwtCockpit
+    public static function fromJson(string|array $data, ?string $rawToken = null): JwtCockpit
     {
         if (!is_array($data)) {
             $data = json_decode($data, true);
         }
 
-        return new JwtCockpit($data['exp'], $data['iat'], $data['iss'], $data['jti'], JwtCockpitMeta::fromJson($data['meta']), $data['nbf'], $data['sub'], JwtType::from($data['type']));
+        return new JwtCockpit($data['exp'], $data['iat'], $data['iss'], $data['jti'], JwtCockpitMeta::fromJson($data['meta']), $data['nbf'], $data['sub'], JwtType::from($data['type']), $rawToken);
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
-        return ['exp' => $this->exp, 'iat' => $this->iat, 'iss' => $this->iss, 'jti' => $this->jti, 'meta' => $this->meta, 'nbf' => $this->nbf, 'sub' => $this->sub, 'type' => $this->type];
+        return ['exp' => $this->exp, 'iat' => $this->iat, 'iss' => $this->iss, 'jti' => $this->jti, 'meta' => $this->meta, 'nbf' => $this->nbf, 'sub' => $this->sub, 'type' => $this->type, 'rawToken' => $this->rawToken];
     }
 }
